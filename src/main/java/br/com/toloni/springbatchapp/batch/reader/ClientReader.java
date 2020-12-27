@@ -1,6 +1,6 @@
-package br.com.toloni.springbatchapp.reader;
+package br.com.toloni.springbatchapp.batch.reader;
 
-import br.com.toloni.springbatchapp.domain.Client;
+import br.com.toloni.springbatchapp.persistence.entity.Client;
 import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.item.database.JdbcPagingItemReader;
 import org.springframework.batch.item.database.PagingQueryProvider;

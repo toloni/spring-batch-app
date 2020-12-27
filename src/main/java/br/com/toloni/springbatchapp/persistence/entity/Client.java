@@ -1,4 +1,4 @@
-package br.com.toloni.springbatchapp.domain;
+package br.com.toloni.springbatchapp.persistence.entity;
 
 public class Client {
 

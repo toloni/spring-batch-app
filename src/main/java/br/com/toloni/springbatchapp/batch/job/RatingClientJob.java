@@ -1,4 +1,4 @@
-package br.com.toloni.springbatchapp.job;
+package br.com.toloni.springbatchapp.batch.job;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;

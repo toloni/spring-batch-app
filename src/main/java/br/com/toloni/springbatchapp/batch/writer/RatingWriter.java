@@ -1,7 +1,6 @@
-package br.com.toloni.springbatchapp.writer;
+package br.com.toloni.springbatchapp.batch.writer;
 
-import br.com.toloni.springbatchapp.domain.Rating;
-import org.springframework.batch.item.database.ItemPreparedStatementSetter;
+import br.com.toloni.springbatchapp.persistence.entity.Rating;
 import org.springframework.batch.item.database.JdbcBatchItemWriter;
 import org.springframework.batch.item.database.builder.JdbcBatchItemWriterBuilder;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,7 +8,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;

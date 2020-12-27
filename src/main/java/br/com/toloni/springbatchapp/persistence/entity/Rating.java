@@ -1,6 +1,5 @@
-package br.com.toloni.springbatchapp.domain;
+package br.com.toloni.springbatchapp.persistence.entity;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
