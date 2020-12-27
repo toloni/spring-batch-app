@@ -9,16 +9,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class OddsOrEvensJobConfig {
+public class RatingClientJobConfig {
 
     @Autowired
     private JobBuilderFactory jobBuilderFactory;
 
     @Bean
-    public Job oddsOrEvensJob(Step oddsOrEvensStep) {
+    public Job ratingClientJob(Step ratingClientStep) {
         return jobBuilderFactory
-                .get("oddsOrEvensJob")
-                .start(oddsOrEvensStep)
+                .get("ratingClientJob")
+                .start(ratingClientStep)
                 .incrementer(new RunIdIncrementer())
                 .build();
     }
