@@ -6,19 +6,19 @@ import org.springframework.batch.core.configuration.annotation.JobBuilderFactory
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
-@Configuration
-public class RatingClientJobConfig {
+@Component
+public class RatingClientJob {
 
     @Autowired
     private JobBuilderFactory jobBuilderFactory;
 
     @Bean
-    public Job ratingClientJob(Step ratingClientStep) {
+    public Job job(Step step) {
         return jobBuilderFactory
                 .get("ratingClientJob")
-                .start(ratingClientStep)
+                .start(step)
                 .incrementer(new RunIdIncrementer())
                 .build();
     }

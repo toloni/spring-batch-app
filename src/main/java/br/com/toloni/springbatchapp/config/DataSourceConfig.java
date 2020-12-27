@@ -24,13 +24,6 @@ public class DataSourceConfig {
         return DataSourceBuilder.create().build();
     }
 
-//    @Bean
-//    @ConfigurationProperties(prefix = "appa.datasource")
-//    public DataSource appADataSource() {
-//
-//        return DataSourceBuilder.create().build();
-//    }
-
     @Bean(name = "appADataSource")
     public DriverManagerDataSource appADataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();

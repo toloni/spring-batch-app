@@ -3,10 +3,10 @@ package br.com.toloni.springbatchapp.writer;
 import br.com.toloni.springbatchapp.domain.Rating;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
-@Configuration
-public class RatingWriterConfig {
+@Component
+public class RatingWriter {
 
     @Bean
     public ItemWriter<Rating> ratingItemWriter() {

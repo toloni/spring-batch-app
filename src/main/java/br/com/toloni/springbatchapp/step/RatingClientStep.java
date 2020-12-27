@@ -6,20 +6,19 @@ import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemWriter;
-import org.springframework.batch.item.database.JdbcBatchItemWriter;
 import org.springframework.batch.item.database.JdbcPagingItemReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
-@Configuration
-public class RatingClientStepConfig {
+@Component
+public class RatingClientStep {
 
     @Autowired
     private StepBuilderFactory stepBuilderFactory;
 
     @Bean
-    public Step ratingClientStep(
+    public Step step(
             JdbcPagingItemReader<Client> clientJdbcPagingItemReader,
             ItemProcessor<Client, Rating> clientRatingItemProcessor,
             ItemWriter<Rating> ratingItemWriter

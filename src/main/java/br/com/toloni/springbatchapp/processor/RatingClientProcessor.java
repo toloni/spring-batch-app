@@ -4,13 +4,13 @@ import br.com.toloni.springbatchapp.domain.Client;
 import br.com.toloni.springbatchapp.domain.Rating;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.UUID;
 
-@Configuration
-public class RatingClientProcessorConfig {
+@Component
+public class RatingClientProcessor {
 
     @Bean
     public ItemProcessor<Client, Rating> clientRatingItemProcessor() {
