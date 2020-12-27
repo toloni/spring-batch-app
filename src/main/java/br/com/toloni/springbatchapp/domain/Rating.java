@@ -1,19 +1,20 @@
 package br.com.toloni.springbatchapp.domain;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class Rating {
 
     private UUID idRating;
-    private LocalDate dateRating;
+    private LocalDateTime dateRating;
     private Long idClient;
     private Integer numberStarsRating;
 
     public Rating() {
     }
 
-    public Rating(UUID idRating, LocalDate dateRating, Long idClient, Integer numberStarsRating) {
+    public Rating(UUID idRating, LocalDateTime dateRating, Long idClient, Integer numberStarsRating) {
         this.idRating = idRating;
         this.dateRating = dateRating;
         this.idClient = idClient;
@@ -28,11 +29,11 @@ public class Rating {
         this.idRating = idRating;
     }
 
-    public LocalDate getDateRating() {
+    public LocalDateTime getDateRating() {
         return dateRating;
     }
 
-    public void setDateRating(LocalDate dateRating) {
+    public void setDateRating(LocalDateTime dateRating) {
         this.dateRating = dateRating;
     }
 

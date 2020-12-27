@@ -28,7 +28,7 @@ public class DataSourceConfig {
     public DriverManagerDataSource appADataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.h2.Driver");
-        dataSource.setUrl("jdbc:h2:file:./data/app_a");
+        dataSource.setUrl("jdbc:h2:file:../data/app_a");
         dataSource.setUsername("sa");
         dataSource.setPassword("");
 

@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Component
@@ -22,7 +23,7 @@ public class RatingClientProcessor {
 
         return new Rating(
                 UUID.randomUUID(),
-                LocalDate.now(),
+                LocalDateTime.now(),
                 client.getIdClient(),
                 1
         );
