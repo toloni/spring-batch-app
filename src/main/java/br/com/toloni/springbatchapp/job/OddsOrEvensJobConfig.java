@@ -33,7 +33,9 @@ public class OddsOrEvensJobConfig {
                 .build();
     }
 
-    @Scheduled(cron = "0 */1 * * * ?") // job will run every one minute after application is started.
+    // https://www.baeldung.com/cron-expressions
+    // job will run every one minute after application is started.
+    @Scheduled(cron = "0 */1 * * * ?")
     public void perform() throws Exception {
 
         JobParameters params = new JobParametersBuilder()

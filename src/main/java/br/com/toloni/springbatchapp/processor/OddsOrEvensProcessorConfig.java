@@ -12,7 +12,7 @@ public class OddsOrEvensProcessorConfig {
     @StepScope
     public FunctionItemProcessor<Integer, String> oddsOrEvensProcessor() {
         return new FunctionItemProcessor<Integer, String>(
-                x -> x % 2 == 0 ? "É PAR..: " + x : "É IMPAR: " + x
+                x -> x % 2 == 0 ? "EVEN: " + x : "ODD.: " + x
         );
     }
 
