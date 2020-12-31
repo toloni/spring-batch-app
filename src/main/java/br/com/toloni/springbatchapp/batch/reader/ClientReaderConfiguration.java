@@ -1,6 +1,6 @@
 package br.com.toloni.springbatchapp.batch.reader;
 
-import br.com.toloni.springbatchapp.persistence.entity.Rating;
+import br.com.toloni.springbatchapp.persistence.entity.Client;
 import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.item.database.JdbcPagingItemReader;
 import org.springframework.batch.item.database.PagingQueryProvider;
@@ -14,33 +14,34 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import javax.sql.DataSource;
 
 @Configuration
-public class RatingReaderConfig {
+public class ClientReaderConfiguration {
 
     @Bean
     @StepScope
-    public JdbcPagingItemReader<Rating> ratingJdbcPagingItemReader(
+    public JdbcPagingItemReader<Client> clientJdbcPagingItemReader(
             @Qualifier("appADataSource") DataSource dataSource,
-            PagingQueryProvider ratingQueryProvider
+            PagingQueryProvider queryProvider
     ) {
-        return new JdbcPagingItemReaderBuilder<Rating>()
-                .name("ratingJdbcPagingItemReader")
+        return new JdbcPagingItemReaderBuilder<Client>()
+                .name("clientReader")
                 .dataSource(dataSource)
-                .queryProvider(ratingQueryProvider)
+                .queryProvider(queryProvider)
                 .pageSize(1)
-                .rowMapper(new BeanPropertyRowMapper<Rating>(Rating.class))
+                .rowMapper(new BeanPropertyRowMapper<Client>(Client.class))
                 .build();
     }
 
     @Bean
-    public SqlPagingQueryProviderFactoryBean ratingQueryProvider(
+    public SqlPagingQueryProviderFactoryBean queryProvider(
             @Qualifier("appADataSource") DataSource dataSource
     ) {
         SqlPagingQueryProviderFactoryBean queryProvider = new SqlPagingQueryProviderFactoryBean();
         queryProvider.setDataSource(dataSource);
         queryProvider.setSelectClause("select *");
-        queryProvider.setFromClause("from Rating");
-        queryProvider.setSortKey("id_rating");
+        queryProvider.setFromClause("from Clients");
+        queryProvider.setSortKey("id_client");
 
         return queryProvider;
     }
+
 }

@@ -1,7 +1,6 @@
 package br.com.toloni.springbatchapp.batch.step;
 
 import br.com.toloni.springbatchapp.batch.processor.RatingClientProcessor;
-import br.com.toloni.springbatchapp.batch.reader.ClientReaderConfig;
 import br.com.toloni.springbatchapp.batch.writer.RatingWriter;
 import br.com.toloni.springbatchapp.persistence.entity.Client;
 import br.com.toloni.springbatchapp.persistence.entity.Rating;
@@ -17,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
 
 @Configuration
-public class RatingClientStepConfig {
+public class RatingClientStepConfiguration {
 
     @Autowired
     private StepBuilderFactory stepBuilderFactory;

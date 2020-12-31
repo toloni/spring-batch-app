@@ -1,4 +1,4 @@
-package br.com.toloni.springbatchapp.config;
+package br.com.toloni.springbatchapp.configuration;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
@@ -15,7 +15,7 @@ import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import javax.sql.DataSource;
 
 @Configuration
-public class DataSourceConfig {
+public class DataSourceConfiguration {
 
     @Bean
     @Primary

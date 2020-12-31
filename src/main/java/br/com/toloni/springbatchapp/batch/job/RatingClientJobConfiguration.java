@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 @Configuration
-public class RatingClientJobConfig {
+public class RatingClientJobConfiguration {
 
     @Autowired
     private JobBuilderFactory jobBuilderFactory;

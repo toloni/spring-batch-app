@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 @Configuration
-public class ExtractTableToFileStepConfig {
+public class ExtractTableToFileStepConfiguration {
 
     @Autowired
     private StepBuilderFactory stepBuilderFactory;

@@ -4,14 +4,13 @@ import br.com.toloni.springbatchapp.persistence.entity.Rating;
 import org.springframework.batch.item.file.FlatFileItemWriter;
 import org.springframework.batch.item.file.transform.BeanWrapperFieldExtractor;
 import org.springframework.batch.item.file.transform.DelimitedLineAggregator;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 
 @Configuration
-public class RatingFileWriterConfig {
+public class RatingFileWriterConfiguration {
 
     private Resource outputResource = new FileSystemResource("./output/outputData.txt");
 
