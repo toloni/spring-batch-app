@@ -5,7 +5,10 @@ import br.com.toloni.springbatchapp.persistence.entity.Rating;
 import br.com.toloni.springbatchapp.usecase.dto.ApiRatingRequestDto;
 import br.com.toloni.springbatchapp.usecase.dto.ApiRatingResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -13,7 +16,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.LocalDateTime;
 
-@Service
+@Component
 public class RatingClientUseCase {
 
     private static final String url = "http://localhost:8080/api/rating";

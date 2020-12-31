@@ -1,40 +1,32 @@
 package br.com.toloni.springbatchapp.batch.writer;
 
 import br.com.toloni.springbatchapp.persistence.entity.Rating;
-import org.springframework.batch.item.database.JdbcBatchItemWriter;
-import org.springframework.batch.item.database.builder.JdbcBatchItemWriterBuilder;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
+import org.springframework.batch.item.ItemWriter;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-@Component
-public class RatingWriter {
+public class RatingWriter implements ItemWriter<Rating> {
 
-    @Bean
-    public JdbcBatchItemWriter<Rating> ratingItemWriter(
-            @Qualifier("appADataSource") DataSource dataSource
-    ) {
-        return new JdbcBatchItemWriterBuilder<Rating>()
-                .dataSource(dataSource)
-                .sql("INSERT INTO RATING(ID_RATING, DATE_RATING, ID_CLIENT, NUMBER_STARS_RATING) VALUES (?, ?, ?, ?)")
-                .itemPreparedStatementSetter(this::itemPreparedStatementSetter)
-                .build();
+    private JdbcTemplate jdbcTemplate;
+
+    public RatingWriter(DataSource dataSource) {
+        this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-    private void itemPreparedStatementSetter(
-            Rating rating,
-            PreparedStatement ps
-    ) throws SQLException {
+    @Override
+    public void write(List<? extends Rating> list) {
 
-        ps.setString(1, rating.getIdRating().toString());
-        ps.setTimestamp(2, Timestamp.valueOf(rating.getDateRating()));
-        ps.setLong(3, rating.getIdClient());
-        ps.setInt(4, rating.getNumberStarsRating());
+        list.forEach(rating -> {
+
+            jdbcTemplate.update(
+                    "INSERT INTO RATING(ID_RATING, DATE_RATING, ID_CLIENT, NUMBER_STARS_RATING) VALUES (?, ?, ?, ?)",
+                    rating.getIdRating().toString(), Timestamp.valueOf(rating.getDateRating()), rating.getIdClient(), rating.getNumberStarsRating());
+        });
     }
 
 }
